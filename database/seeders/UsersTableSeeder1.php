@@ -6,17 +6,17 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UsersTableSeeder extends Seeder
+class UsersTableSeeder1 extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // Escuta e carrega os métodos das outras classes, as outras seeders.
-        $this->call([
-            UsersTableSeeder1::class,
-            UsersTableSeeder2::class
+        DB::table('users')->insert([
+            'username' => 'daniel',
+            'password' => bcrypt('senha'), // password_hash
+            'active' => true
         ]);
     }
 }
